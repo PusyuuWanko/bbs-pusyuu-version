@@ -1,4 +1,7 @@
-# bbs
+# bbs-pusyuu-version
+
+改良中
+
 bbsデータベースを作成し、
 SQL文
 `CREATE TABLE users (
