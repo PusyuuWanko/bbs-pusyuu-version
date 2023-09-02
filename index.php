@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <header class="header">
-    <h2>Mrs <?php echo $username; ?> WELCOME</h2>
+    <h2>MRS <?php echo $username; ?> WELCOME</h2>
     <nav>
       <ul>
         <li><a href="./bbs-rule.html">BBS OF RULE</a></li>
@@ -73,11 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" id="thread_name" name="thread_name" required placeholder="THREAD NAME">
         <textarea id="comment" name="comment" required placeholder="COMMENT"></textarea>
         <button type="submit">CREATE</button>
-      </form>
-      <h2>IMAGE UPLOADER</h2>
-      <form action="img-upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" id="image" name="image" accept="image/*" required>
-        <button type="submit">IMAGE UPLOAD</button>
       </form>
     </div>
   </div>
