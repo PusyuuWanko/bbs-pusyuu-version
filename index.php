@@ -166,7 +166,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     const iframe = document.getElementById('threadIframe');
     const url = 'thread.php?name=' + encodeURIComponent(threadName);
     iframe.src = url;
+
+    // 選択したスレッド名をセッションストレージに保存
+    sessionStorage.setItem('selectedThread', threadName);
   }
+  // ページ読み込み時にセッションストレージから選択情報を取得
+  window.onload = function() {
+    const selectedThread = sessionStorage.getItem('selectedThread');
+    if (selectedThread) {
+      loadThread(selectedThread); // 選択情報があれば、iframeを更新
+    }
+  };
   </script>
   </main>
   <footer class="footer">
