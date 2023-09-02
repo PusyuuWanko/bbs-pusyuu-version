@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <header class="header">
-    <h2>ようこそ<?php echo $username; ?>さん!</h2>
+    <h2>Mrs <?php echo $username; ?> WELCOME</h2>
     <nav>
       <ul>
         <li><a href="./bbs-rule.html">BBS OF RULE</a></li>
