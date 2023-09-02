@@ -1,8 +1,8 @@
 <?php
 // DB接続情報
 $host = 'localhost';
-$dbname = 'bbs';
-$user = 'php-login';
+$dbname = 'bbs-db';
+$user = 'root';
 $pass = '';
 
 try {

@@ -1,8 +1,8 @@
 # bbs-pusyuu-version
 
-改良中
+bbs(プシューバージョン)では鮮麗されたデザインで、スレッドを選択したときその場での操作を実現、等を行っています。
 
-bbsデータベースを作成し、
+userデータベースを作成し、
 SQL文
 `CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,

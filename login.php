@@ -19,10 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // ユーザーが存在するかチェック
     if ($stmt->rowCount() > 0) {
-        session_unset();
-        session_destroy();
-        session_set_cookie_params(10368000);//セッションの期限の延長
-        session_start();
+        // ログイン成功
         $user = $stmt->fetch();
         $_SESSION['email'] = $email;
         $_SESSION['username'] = $user['username']; // ユーザー名をセッションに保存
@@ -34,83 +31,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bbs.256server｜ログイン</title>
-    <link rel="stylesheet" href="sub.css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>BBS - LOGIN</title>
 </head>
-
 <body>
-    <main>
-        <div class="login-main" id="login-main" style="height: 300px;">
-            <div class="login-main-margin">
-                <h2>bbsにログイン</h2>
-                <?php if (isset($errorMessage)) : ?>
-                    <p style="color: red;"><?php echo $errorMessage; ?></p>
-                <?php endif; ?>
-                <form action="login.php" method="POST">
-                    <input type="email" id="email" class="post_word" name="email" required placeholder="メールアドレス"><br>
-                    <input type="password" id="password" class="post_word" name="password" required placeholder="パスワード"><br>
-                    <p id="caps-lock"></p>
-                    <input type="submit" value="ログイン" class="login_submit" id="low"><br>
-                    <div id="low-a" style="transition: 0.4s ease;"><a href="/create_account.php">新規登録</a></div>
-                </form>
-            </div>
-        </div>
-        <div class="freebbs-main">
-            <div class="freebbs-main-margin">
-                <a href="https://256server.com/bbs/index.php">誰でも書き込めるbbs</a>
-            </div>
-        </div>
-    </main>
-    <script>
-        let isExtended = false; // div要素が伸ばされているかを管理するフラグ
-
-        document.addEventListener("keydown", function(event) {
-            const capsLockOn = event.getModifierState && event.getModifierState("CapsLock");
-            const messageElement = document.getElementById("caps-lock");
-            const divElement = document.getElementById("login-main");
-            const submitElement = document.getElementById("low");
-            const aElement = document.getElementById('low-a');
-            
-
-            if (capsLockOn && !isExtended) {
-                messageElement.textContent = "Caps-Lockがオンになっています";
-                messageElement.style.opacity = "1"; // メッセージを表示
-
-                // div要素のheightを伸ばす
-                divElement.style.height = (divElement.offsetHeight + 30) + "px";
-
-                submitElement.style.transform = "translateY(0px)";
-                aElement.style.transform = 'translateY(0px)';
-                isExtended = true; // フラグをtrueに設定
-            } else if (!capsLockOn && isExtended) {
-                messageElement.style.opacity = "0"; // アニメーションで非表示にする
-
-                // メッセージを非表示にする際に、div要素も元の高さに戻す
-                divElement.style.height = "300px";
-                submitElement.style.transform = "translateY(-40px)";
-                aElement.style.transform = 'translateY(-40px)';
-                isExtended = false; // フラグをfalseに設定
-            }
-        });
-
-        // アニメーション終了時に非表示にする
-        const messageElement = document.getElementById("caps-lock");
-        const submitElement = document.getElementById("low");
-
-        submitElement.style.transform = "translateY(0px)";
-
-        messageElement.addEventListener("transitionend", function() {
-            if (messageElement.style.opacity === "0") {
-
-                massageElement.style.display = "none";
-            }
-        });
-    </script>
+  <div class="form_design-1">
+    <h2>LOGIN</h2>
+    <?php if (isset($errorMessage)) : ?>
+      <p style="color: red;"><?php echo $errorMessage; ?></p>
+    <?php endif; ?>
+    <form action="./login.php" method="POST">
+      <label for="email">EMAIL:</label>
+      <input type="email" id="email" name="email" required><br>
+      <label for="password">PASSWORD:</label>
+      <input type="password" id="password" name="password" required><br>
+      <button type="submit">LOGIN</button>
+    </form>
+    <a href="./create_account.php">NEW CREATE ACCOUNT</a>
+  </div>
 </body>
 </html>
