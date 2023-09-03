@@ -45,31 +45,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <title>新規登録</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>BBS - CREATEACCOUNT</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: auto;
+    }
+    .form_design-1 {
+      width: 50vw;
+      height: auto;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="form_design-1">
     <h2>新規登録</h2>
     <?php if (isset($errorMessage)) : ?>
-        <p style="color: red;"><?php echo $errorMessage; ?></p>
+      <p style="color: red;"><?php echo $errorMessage; ?></p>
     <?php endif; ?>
     <form action="create_account.php" method="POST">
-        <label for="username">ユーザー名:</label><input type="text" id="username" name="username" required><br>
-        <label for="email">メールアドレス:</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">パスワード:</label>
-        <input type="password" id="password" name="password" required><br>
-        <label for="confirm_password">パスワード確認:</label>
-        <input type="password" id="confirm_password" name="confirm_password" required><br>
-        <input type="submit" value="Create Account"><a href="./bbs-rule.html">アカウントを作る前に読んでね</a>
+      <label for="username">ユーザー名:</label><input type="text" id="username" name="username" required><br>
+      <label for="email">メールアドレス:</label>
+      <input type="email" id="email" name="email" required><br>
+      <label for="password">パスワード:</label>
+      <input type="password" id="password" name="password" required><br>
+      <label for="confirm_password">パスワード確認:</label>
+      <input type="password" id="confirm_password" name="confirm_password" required><br>
+      <button type="submit">Create Account</button>
+      <a href="./bbs-rule.html">アカウントを作る前に読んでね</a>
     </form>
     <a href="./login.php">ログイン</a>
+  </div>
 </body>
-
 </html>

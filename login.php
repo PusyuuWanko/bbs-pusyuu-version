@@ -37,6 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <title>BBS - LOGIN</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: auto;
+    }
+    .form_design-1 {
+      width: 50vw;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
   <div class="form_design-1">
