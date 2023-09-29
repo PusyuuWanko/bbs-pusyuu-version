@@ -181,7 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </main>
   <footer class="footer">
     <h2>THREAD VIEW</h2>
-    <iframe width="100%" height="500px" id="threadIframe" src="" frameborder="1px"></iframe>
+    <iframe width="100%" height="500px" id="threadIframe" src="./ThreadDisplay.html" frameborder="1px"></iframe>
   </footer>
 </body>
 </html>
